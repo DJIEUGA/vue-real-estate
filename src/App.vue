@@ -7,7 +7,7 @@ import { RouterView } from 'vue-router';
     <header class="bg-white shadow-sm">
       <nav class="container mx-auto px-4 py-4">
         <router-link to="/" class="text-2xl font-bold text-primary">
-          VueEstate
+          RyleEstate
         </router-link>
       </nav>
     </header>

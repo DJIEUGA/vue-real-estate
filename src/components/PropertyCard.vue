@@ -7,9 +7,9 @@ defineProps<{
 </script>
 
 <template>
-  <router-link :to="{ name: 'property-details', params: { id: property.id }}" class="property-card">
+  <router-link :to="{params: { id: property.id }}" class="property-card">
     <div class="relative">
-      <img :src="property.coverPhoto" :alt="property.title" class="w-full h-64 object-cover" />
+      <img :src="property.coverPhoto.url" :alt="property.title" class="w-full h-64 object-cover" />
       <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold">
         {{ property.purpose === 'for-rent' ? 'For Rent' : 'For Sale' }}
       </div>
@@ -25,7 +25,7 @@ defineProps<{
         <span class="mr-4">{{ property.baths }} baths</span>
         <span>{{ Math.round(property.area) }} sqft</span>
       </div>
-      <p class="text-gray-500">{{ property.location }}</p>
+      <p class="text-gray-500">{{ property.location[0].name }}</p>
     </div>
   </router-link>
 </template>

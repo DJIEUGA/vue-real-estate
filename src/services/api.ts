@@ -18,25 +18,12 @@ export const getProperties = async (purpose: string = 'for-rent'): Promise<Prope
         hitsPerPage: '25',
         page: '0',
         lang: 'en',
-        sort: 'city-level-score',
+        sort: 'price-desc',
         rentFrequency: 'monthly',
+        categoryExternalID: '4',
       }
-    });
-    return response.data.hits.map((property: any) => ({
-      id: property.id,
-      title: property.title,
-      price: property.price,
-      location: property.location[0].name,
-      type: property.category[0].name,
-      purpose: property.purpose,
-      rooms: property.rooms,
-      baths: property.baths,
-      area: property.area,
-      coverPhoto: property.coverPhoto.url,
-      photos: property.photos.map((photo: any) => photo.url),
-      description: property.description,
-      amenities: property.amenities.map((amenity: any) => amenity.text)
-    }));
+    }); 
+    return response.data.hits;
   } catch (error) {
     console.error('Error fetching properties:', error);
     return [];
